@@ -1,0 +1,23 @@
+body{
+	background-color: #ffffb3;
+}
+
+.column{
+	float:left;
+
+}
+head {
+	font-size: 20px;
+}
+
+img {
+   padding:4px;
+   border:4px solid:#33334d; 
+   background-color:#33334d;
+}
+div {
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+  
+}

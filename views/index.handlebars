@@ -1,0 +1,62 @@
+
+<div class="row">
+  <center>
+    <img src="/assets/images/burger.png" width=200px height=150px> 
+      <h2> Eat-Da-Burger! </h2>
+</div>
+  
+  {{!-- burger list before being eaten --}} 
+  <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+        <div class="panel-panel default">
+           <ul class="list-group"> 
+              {{#each burgers}} 
+                {{#unless this.devoured}} 
+                  <li class="list-group-item">
+                  <div class="input-group">
+                  <p class="lead"> {{this.burger_name}} </p>
+                   <span class="input-group-btn">
+                <form action="/burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="true">
+                  <button class="btn btn-default btn-lg" type="submit"> Devour! </button>
+                </form>
+              </span>
+            </div>
+            <br>
+          </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+    {{!-- burger list after being eaten --}}
+  
+    <div class="column">
+      <div class="col-md-8 col-md-offset-6">
+      <div class="panel panel-default">
+        <ul class="list-group"> 
+        {{#each burgers}}
+          {{#if this.devoured}} 
+          <li class="list-group-item">
+            <p class="lead">{{this.burger_name}} </p>
+          </li>
+          {{/if}}
+        {{/each}}
+        <br>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-md-offset-4" height=15px>
+    <p class="lead">What kind of Burger would you like? Enter the name below! </p>
+
+    {{!-- section to add burgers --}}
+    <form class="create-update-form" action="/burgers/insertOne" method="POST">
+      <div class="form-group">
+        <textarea class="form-control input-lg" type="text" name="burger_name" rows="4"> </textarea>
+      </div>
+      <button class="btn btn-default btn-lg" type="submit">Submit!</button>
+    </form>
+  </div> 
+  </center>
+</div>

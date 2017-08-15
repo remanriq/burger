@@ -23,7 +23,7 @@ router.get("/burgers", function(req, res) {
 
 router.post("/burgers/insertOne", function(req, res) {
   burgers.insertOne(["burger_name"],
-   "req.body.b_name", function(data) {
+   "req.body.burger_name", function(data) {
     res.redirect("/burgers");
   });
 });
@@ -34,7 +34,8 @@ router.put("/burgers/updateOne/:id", function(req, res) {
   console.log("condition", condition);
 
   burgers.updateOne({
-    "devoured": req.params.id }, 
+    devoured: true
+     }, 
     condition, function(data) {
     res.redirect("/burgers");
   });

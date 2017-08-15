@@ -16,7 +16,7 @@
                   <div class="input-group">
                   <p class="lead"> {{this.burger_name}} </p>
                    <span class="input-group-btn">
-                <form action="/burgers/updateOne/{{this.id}}?_method=PUT" method="POST">
+                <form action="/burgers/updateOne/:id"{{this.id}}?_method=PUT" method="POST">
                   <input type="hidden" name="devoured" value="true">
                   <button class="btn btn-default btn-lg" type="submit"> Devour! </button>
                 </form>
@@ -51,7 +51,7 @@
     <p class="lead">What kind of Burger would you like? Enter the name below! </p>
 
     {{!-- section to add burgers --}}
-    <form class="create-update-form" action="/burgers/insertOne" method="POST">
+    <form class="create-update-form" action="/insertOne" method="POST">
       <div class="form-group">
         <textarea class="form-control input-lg" type="text" name="burger_name" rows="4"> </textarea>
       </div>

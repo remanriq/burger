@@ -1,1 +1,5 @@
-# burger
+Eat-da-Burger, a full stack application that utilizes My Sql as a database, HTML, Bootstrap and CSS for styling. The application, requires handlebars, and method override in order for the backend side of the application to call the front end side of the application. The goal of the application is to allow the user to input the burger of their choice and once they submit, their burger will be stored in the app's database. The user will see their choice inserted into the page, and then the user will have the opportunity to click 'devour' and therefore, eat their burger. 
+
+When the user inserts the burger of their choice, handlebars, methodoverride and express and being used. Express allows for the burger value to be inserted into the InsertOne function created by using ORM, object relational mapping which allows for our values to be inserted into our database. So, the user's choice will be inserted to our database table. 
+
+For my Sql database, I created a table with the values, "burger_name","devour", and a "datetime". Therefore, each value inserted as a "burger_name" will be inserted to our database table. 

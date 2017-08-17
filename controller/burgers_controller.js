@@ -21,25 +21,30 @@ router.get("/burgers", function(req, res) {
   });
 });
 
-router.post("/burgers/insertOne", function(req, res) {
-  burgers.insertOne(["burger_name"],
-   "req.body.burger_name", function(data) {
+router.post("/insertOne", function(req, res) {
+
+  burgers.insertOne("burger_name",
+    [req.body.burger_name], function(data) {
     res.redirect("/burgers");
   });
+
 });
 
-router.put("/burgers/updateOne/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burgers.updateOne({
-    devoured: true
-     }, 
-    condition, function(data) {
-    res.redirect("/burgers");
-  });
+router.put("/burgers/updateOne", function(req, res) {
+burgers.updateOne(req.body.burger_id, function(result){
+  console.log(result);
+  res.redirect("/burgers");
 });
+});
+
+// router.put("/burgers/update", function(req, res) {
+//   burger.update(req.body.burger_id, function(result) {
+//     // wrapper for orm.js that using MySQL update callback will return a log to console,
+//     // render back to index with handle
+//     console.log(result);
+//     res.redirect("/");
+//   });
+// });
 
 
 
